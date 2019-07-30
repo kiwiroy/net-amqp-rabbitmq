@@ -2,7 +2,7 @@
 
 . "$(dirname $0)/util.sh"
 
-if [ $is_osx ]; then
+if [ "$is_osx" == "true" ]; then
     brew install cpanminus
 fi
 

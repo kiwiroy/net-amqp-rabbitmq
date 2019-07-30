@@ -16,6 +16,9 @@ os:
   - linux
   - osx
 services: rabbitmq
+cache:
+  directories:
+    - $HOME/perl5
 before_install:
   - $TRAVIS_BUILD_DIR/travis/before_install
 script:

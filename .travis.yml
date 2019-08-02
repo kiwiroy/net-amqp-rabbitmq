@@ -4,12 +4,28 @@ matrix:
   include:
   - perl: "5.28"
     dist: xenial
+    addons:
+      apt:
+        packages:
+          - rabbitmq-server
   - perl: "5.26"
     dist: xenial
+    addons:
+      apt:
+        packages:
+          - rabbitmq-server
   - perl: "5.24"
     dist: xenial
+    addons:
+      apt:
+        packages:
+          - rabbitmq-server
   - perl: "5.22"
     dist: xenial
+    addons:
+      apt:
+        packages:
+          - rabbitmq-server
   - perl: "5.20"
     dist: trusty
   - perl: "5.18"
@@ -24,9 +40,21 @@ matrix:
     dist: trusty
   - perl: "5.8"
     dist: trusty
-os:
-  - linux
-  - osx
+  - perl: "5.18"
+    os: osx
+    osx_image: xcode9.4
+    addons:
+      homebrew:
+        packages:
+          - cpanminus
+        update: true
+  - os: osx
+    osx_image: xcode11
+    addons:
+      homebrew:
+        packages:
+          - cpanminus
+        update: true
 services: rabbitmq
 cache:
   directories:
@@ -35,8 +63,3 @@ before_install:
   - $TRAVIS_BUILD_DIR/travis/before_install
 script:
   - $TRAVIS_BUILD_DIR/travis/script
-dist: xenial
-addons:
-  apt:
-    packages:
-      - rabbitmq-server
